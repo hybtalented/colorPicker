@@ -61,7 +61,7 @@
 		requestAnimationFrame = 'request' + animationFrame,
 		cancelAnimationFrame = 'cancel' + animationFrame,
 		vendors = ['ms', 'moz', 'webkit', 'o'],
-		
+
 		ColorPicker = function(options) { // as tiny as possible...
 			this.options = {
 				color: 'rgba(204, 82, 37, 0.8)',
@@ -80,7 +80,7 @@
 				// initStyle: 'display: none',
 
 				// memoryColors: "'rgba(82,80,151,1)','rgba(100,200,10,0.5)','rgba(100,0,0,1)','rgba(0,0,0,1)'"
-				// memoryColors: [{r: 100, g: 200, b: 10, a: 0.5}] //  
+				// memoryColors: [{r: 100, g: 200, b: 10, a: 0.5}] //
 
 				// opacityPositionRelative: undefined,
 				// customCSS: undefined,
@@ -258,7 +258,7 @@
 		THIS.renderMemory(_options.memoryColors);
 
 		installEventListeners(THIS);
-		
+
 		_mouseMoveAction = true;
 		stopChange(undefined, 'init');
 
@@ -374,8 +374,8 @@
 		// faster ... FF8.0 (2011) though (but IE4)
 		// outerHTML ... FF11 (2013)
 		app.insertAdjacentHTML('afterbegin',
-			_colorPicker ? _colorPicker.nodes.colorPicker.outerHTML ||
-				new XMLSerializer().serializeToString(_colorPicker.nodes.colorPicker) : // FF before F11
+			// _colorPicker ? _colorPicker.nodes.colorPicker.outerHTML ||
+			// 	new XMLSerializer().serializeToString(_colorPicker.nodes.colorPicker) : // FF before F11
 				_data._html.replace(/§/g, prefix));
 			// _colorPicker ? _colorPicker.nodes.colorPicker.parentNode.innerHTML : _data._html.replace(/§/g, prefix));
 		// _data._html = null;
@@ -712,7 +712,7 @@
 		}
 
 		if (keyCode === 13 && isHex) {
-			if (textNode.data.length % 3 === 0 || textNode.data === '0') { // textNode.data.length && 
+			if (textNode.data.length % 3 === 0 || textNode.data === '0') { // textNode.data.length &&
 				return _colorPicker.setColor(textNode.data === '0' ? '000' : textNode.data, 'rgb', _colors.alpha, true);
 			} else {
 				preventDefault(event, true);
@@ -739,7 +739,7 @@
 			_mouseMoveAction = true;
 			stopChange(e, event.type);
 
-			textNode.data = value; // if 
+			textNode.data = value; // if
 			caret(elm, _math.min(elm.firstChild.data.length, rangeData.start < 0 ? 0 : rangeData.start));
 		}
 	}
@@ -1012,7 +1012,7 @@
 		_colorInstance.saveAsBackground();
 		_nodes.styles.col2.cssText = 'background-color: ' + color2string(_colors.background.RGB) + ';' +
 			getOpacityCSS(_colors.background.alpha);
-		
+
 		if (refresh) {
 			preRenderAll(_colors);
 			// renderAll();
@@ -1160,7 +1160,7 @@
 		if (renderVars.noRGBZ) {
 			if (cashedVars.noRGBZ !== renderVars.noRGBZ) {
 				nodes.curl.className = prefix + 'curl ' + prefix + 'curl-' + renderVars.noRGBZ;
-					
+
 				if (!moveZ) {
 					nodes.curr.className = prefix + 'curr ' + prefix + 'curr-' + renderVars.noRGBZ;
 				}
@@ -1226,7 +1226,7 @@
 	// 		n = 0;
 
 	// 	type = type || 'rgb';
-	// 	while (type.charAt(n)) { // IE7 // V8 type[n] || 
+	// 	while (type.charAt(n)) { // IE7 // V8 type[n] ||
 	// 		out.push(color[type.charAt(n)]);
 	// 		n++;
 	// 	}
@@ -1316,7 +1316,7 @@
 			},
 			_set: function(obj, type, func) {
 				var cache = addEvent.cache[type] = addEvent.cache[type] || [];
-				
+
 				if (addEvent.cache._get(obj, type, func, true)) {
 					return true;
 				} else {
@@ -1376,7 +1376,7 @@
 		}
 		// set
 		if (pos == -1) pos = target['text']().length;
-		
+
 		if (window.getSelection) { // HTML5
 			target.focus();
 			window.getSelection().collapse(target.firstChild, pos);
